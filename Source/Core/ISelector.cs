@@ -6,66 +6,48 @@ namespace Locks2.Core
 {
     public abstract class ISelector : Window
     {
-        private readonly bool integrated;
         private readonly Action closeAction;
-        private readonly Rect integratedRect;
+        private readonly bool integrated;
 
         public ISelector(bool integrated = false, Action closeAction = null)
         {
             this.integrated = integrated;
             if (this.integrated && closeAction == null)
-            {
-                throw new InvalidOperationException("In intergrated mod you must pass a listing_standard and an onclose action");
-            }
+                throw new InvalidOperationException(
+                    "In intergrated mod you must pass a listing_standard and an onclose action");
             this.closeAction = closeAction;
         }
 
         public override void DoWindowContents(Rect inRect)
         {
-            if (integrated)
-            {
-                throw new InvalidOperationException("Called do DoWindowContents in integrated mod");
-            }
-            Listing_Standard currentStandard = new Listing_Standard();
+            if (integrated) throw new InvalidOperationException("Called do DoWindowContents in integrated mod");
             var font = Text.Font;
             var anchor = Text.Anchor;
-
             inRect.height -= 30;
-            currentStandard.Begin(inRect);
-            FillContents(currentStandard, inRect);
-            currentStandard.End();
+            FillContents(inRect);
             inRect.height += 30;
-            if (Widgets.ButtonText(inRect.BottomPartPixels(30), "Locks2Close".Translate()))
-            {
-                Close();
-            }
+            if (Widgets.ButtonText(inRect.BottomPartPixels(30), "Locks2Close".Translate())) Close();
             Text.Font = font;
             Text.Anchor = anchor;
         }
 
-        public void DoIntegratedContents(Rect rect, Listing_Standard standard)
+        public void DoIntegratedContents(Rect rect)
         {
             var font = Text.Font;
             var anchor = Text.Anchor;
-
-            FillContents(standard, new Rect(Vector2.zero, rect.size));
-
+            FillContents(rect.ContractedBy(3));
             Text.Font = font;
             Text.Anchor = anchor;
         }
 
-        public abstract void FillContents(Listing_Standard standard, Rect inRect);
+        public abstract void FillContents(Rect inRect);
 
         public override void Close(bool doCloseSound = true)
         {
             if (!integrated)
-            {
                 base.Close(doCloseSound);
-            }
             else
-            {
                 closeAction.Invoke();
-            }
         }
     }
 }

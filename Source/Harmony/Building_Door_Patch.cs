@@ -1,78 +1,65 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Reflection;
-using System.Reflection.Emit;
+﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using HarmonyLib;
-using JetBrains.Annotations;
 using Locks2.Core;
 using RimWorld;
 using Verse;
-using Verse.AI;
 
 namespace Locks2.Harmony
 {
     [HarmonyPatch(typeof(Building_Door), nameof(Building_Door.PawnCanOpen))]
-    static class Building_Door_PawnCanOpen_Patch
+    internal static class Building_Door_PawnCanOpen_Patch
     {
-        static bool Prefix(Building_Door __instance, Pawn p, ref bool __result)
+        [HarmonyPriority(int.MaxValue)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static bool Prefix(Building_Door __instance, Pawn p, ref bool __result)
         {
             if (__instance.Faction == null)
             {
-                __result = true; return false;
+                __result = true;
+                return false;
             }
-            if (!(__instance.Map?.IsPlayerHome ?? false) || p == null)
-            {
-                return true;
-            }
+            if (!(__instance.Map?.IsPlayerHome ?? false) || p == null || (p.roping?.IsRopedByPawn ?? false)) return true;
             var config = Finder.currentConfig = __instance.GetConfig();
             if (config == null) return true;
             if (config.Allows(p))
-            {
                 __result = true;
-            }
             else
-            {
                 __result = false;
-            }
             return false;
         }
     }
 
     [HarmonyPatch]
-    static class Building_Door_Expanded_PawnCanOpen_Patch
+    internal static class Building_Door_Expanded_PawnCanOpen_Patch
     {
-        static bool Prepare()
+        private static bool Prepare()
         {
             return AccessTools.Method("Building_DoorExpanded:PawnCanOpen") != null;
         }
 
-        static MethodBase TargetMethod()
+        private static MethodBase TargetMethod()
         {
             return AccessTools.Method("Building_DoorExpanded:PawnCanOpen");
         }
 
-        static bool Prefix(Building __instance, Pawn p, ref bool __result)
+        [HarmonyPriority(int.MaxValue)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static bool Prefix(Building __instance, Pawn p, ref bool __result)
         {
             if (__instance.Faction == null)
             {
-                __result = true; return false;
+                __result = true;
+                return false;
             }
-            if (!(__instance.Map?.IsPlayerHome ?? false) || p == null)
-            {
-                return true;
-            }
+
+            if (!(__instance.Map?.IsPlayerHome ?? false) || p == null) return true;
             var config = Finder.currentConfig = __instance.GetConfig();
             if (config == null) return true;
             if (config.Allows(p))
-            {
                 __result = true;
-            }
             else
-            {
                 __result = false;
-            }
             return false;
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using Verse;
 
@@ -13,28 +14,24 @@ namespace Locks2.Core
 
             public override float Height => 54;
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             public override bool Allows(Pawn pawn)
             {
-                if (enabled && pawn.Drafted)
-                {
-                    return true;
-                }
+                if (enabled && pawn.Drafted) return true;
                 return false;
             }
 
-            public override void DoContent(IEnumerable<Pawn> pawns, Rect rect, Action notifySelectionBegan, Action notifySelectionEnded)
+            public override void DoContent(IEnumerable<Pawn> pawns, Rect rect, Action notifySelectionBegan,
+                Action notifySelectionEnded)
             {
                 var before = enabled;
                 Widgets.CheckboxLabeled(rect, "Locks2DraftedPawns".Translate(), ref enabled);
-                if (enabled != before)
-                {
-                    Find.CurrentMap.reachability.ClearCache();
-                }
+                if (enabled != before) Notify_Dirty();
             }
 
             public override IConfigRule Duplicate()
             {
-                return new ConfigRuleIgnorDrafted() { enabled = enabled };
+                return new ConfigRuleIgnorDrafted { enabled = enabled };
             }
 
             public override void ExposeData()

@@ -1,0 +1,45 @@
+﻿<Properties NuGet.AddPackagesDialog.IncludePrerelease="True">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Source/Harmony/Building_Door_Patch.cs">
+    <Files>
+      <File FileName="Source/Harmony/Pawn_ApparelTracker_Patch.cs" Line="9" Column="6" />
+      <File FileName="Source/Harmony/Optimizations/PathFinder_Patch.cs" />
+      <File FileName="Source/Core/LockConfig.ConfigRuleAnimals.cs" Line="30" Column="51" />
+      <File FileName="Source/Core/LockConfig.ConfigRuleColonists.cs" />
+      <File FileName="Source/Harmony/Building_Door_Patch.cs" Line="11" Column="52" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="NextStep" expanded="True">
+            <Node name="Locks2" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Core" expanded="True" />
+              <Node name="Harmony" expanded="True">
+                <Node name="Optimizations" expanded="True" />
+                <Node name="Building_Door_Patch.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State name="__root__">
+          <Node name="NextStep" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>../../../ColonyManager2/Source/ColonyManager2/ColonyManager2.csproj</String>
+    <String>../../../ColonyManager2/Source/ColonyManager2/Manager2.csproj</String>
+    <String>../../../RocketGUI/Source/RocketGUI/RocketGUI.csproj</String>
+  </DisabledProjects>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

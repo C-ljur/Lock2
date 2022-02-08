@@ -1,0 +1,34 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Source/HarmonyPatches/HPatcher.cs">
+    <Files>
+      <File FileName="Source/Source.csproj" Line="82" Column="14" />
+      <File FileName="Source/Base.cs" Line="10" Column="9" />
+      <File FileName="Source/Finder.cs" Line="11" Column="6" />
+      <File FileName="Source/HarmonyPatches/HPatcher.cs" Line="3" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="LockMeOut" expanded="True">
+            <Node name="Source" expanded="True">
+              <Node name="HarmonyPatches" expanded="True">
+                <Node name="HPatcher.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State name="__root__">
+          <Node name="LockMeOut" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

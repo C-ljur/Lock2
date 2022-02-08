@@ -1,8 +1,6 @@
-﻿using System;
-using HarmonyLib;
+﻿using HarmonyLib;
 using Locks2.Core;
 using RimWorld;
-using Verse;
 
 namespace Locks2.Harmony
 {

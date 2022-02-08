@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using HarmonyLib;
 using Locks2.Core;
 using Verse;
@@ -7,12 +7,14 @@ using Verse.AI;
 
 namespace Locks2.Harmony
 {
-    [HarmonyPatch(typeof(PathFinder), nameof(PathFinder.FindPath), new[] { typeof(IntVec3), typeof(LocalTargetInfo), typeof(TraverseParms), typeof(PathEndMode) })]
+    [HarmonyPatch(typeof(PathFinder), nameof(PathFinder.FindPath), typeof(IntVec3), typeof(LocalTargetInfo),
+        typeof(TraverseParms), typeof(PathEndMode), typeof(PathFinderCostTuning))]
     public class PathFinder_FindPath_Patch
     {
         private const int MAX_FAILS = 3;
-        private static Dictionary<int, Pair<int, int>> cache = new Dictionary<int, Pair<int, int>>();
+        private static readonly Dictionary<int, Pair<int, int>> cache = new Dictionary<int, Pair<int, int>>();
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static int GetKey(TraverseParms traverseParms, LocalTargetInfo dest)
         {
             int hash;
@@ -26,14 +28,8 @@ namespace Locks2.Harmony
 
         public static void Postfix(PawnPath __result, TraverseParms traverseParms, LocalTargetInfo dest)
         {
-            if (__result != PawnPath.NotFound)
-            {
-                return;
-            }
-            if (traverseParms.pawn == null)
-            {
-                return;
-            }
+            if (__result != PawnPath.NotFound) return;
+            if (traverseParms.pawn == null) return;
             var key = GetKey(traverseParms, dest);
             if (cache.TryGetValue(key, out var store) && GenTicks.TicksGame - store.second < 2500)
             {
@@ -49,6 +45,7 @@ namespace Locks2.Harmony
                     store.second = GenTicks.TicksGame;
                     cache[key] = store;
                 }
+
                 return;
             }
             cache[key] = new Pair<int, int>(1, GenTicks.TicksGame);

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$PROJECT_DIR$/../../../ColonyManager2/Assemblies" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$/../../../ColonyManager2/Source/ColonyManager2" t="IncludeRecursive">
+      <e p="Base.cs" t="Include" />
+      <e p="Core" t="Include">
+        <e p="Containers" t="Include">
+          <e p="Selectors" t="Include">
+            <e p="Columns" t="Include">
+              <e p="ColonistColumn_Gear.cs" t="Include" />
+              <e p="ColonistsColumn_Capacity.cs" t="Include" />
+              <e p="ColonistsColumn_Name.cs" t="Include" />
+              <e p="ColonistsColumn_Need.cs" t="Include" />
+              <e p="ColonistsColumn_Skill.cs" t="Include" />
+              <e p="ColonistsColumn_Stat.cs" t="Include" />
+              <e p="IColonistsColumn.cs" t="Include" />
+            </e>
+            <e p="ISelector.cs" t="Include" />
+            <e p="ISelector_GenericSelection.cs" t="Include" />
+            <e p="Selector_AreaSelection.cs" t="Include" />
+            <e p="Selector_ColonistsColumns.cs" t="Include" />
+            <e p="Selector_DefSelection.cs" t="Include" />
+            <e p="Selector_PawnSelection.cs" t="Include" />
+            <e p="Selector_TypeSelection.cs" t="Include" />
+          </e>
+          <e p="Tabs" t="Include">
+            <e p="ITabContent.cs" t="Include" />
+            <e p="TabContent_Colonists.cs" t="Include" />
+            <e p="TabContent_InspectorSettings.cs" t="Include" />
+            <e p="TabContent_Manage.cs" t="Include" />
+            <e p="TabContent_Settings.cs" t="Include" />
+            <e p="TabHolder.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Extensions.cs" t="Include" />
+        <e p="GUIExtensions.cs" t="Include" />
+        <e p="Inspector" t="Include">
+          <e p="IElement.cs" t="Include" />
+          <e p="IElement_AllowedArea.cs" t="Include" />
+          <e p="IElement_Capacity.cs" t="Include" />
+          <e p="IElement_GapLine.cs" t="Include" />
+          <e p="IElement_HealthBar.cs" t="Include" />
+          <e p="IElement_JobLabel.cs" t="Include" />
+          <e p="IElement_Medication.cs" t="Include" />
+          <e p="IElement_MentalStat.cs" t="Include" />
+          <e p="IElement_MoodBar.cs" t="Include" />
+          <e p="IElement_MoodLabel.cs" t="Include" />
+          <e p="IElement_Need.cs" t="Include" />
+          <e p="IElement_Skill.cs" t="Include" />
+          <e p="IElement_Stat.cs" t="Include" />
+          <e p="IElement_String.cs" t="Include" />
+          <e p="IElement_Summary.cs" t="Include" />
+          <e p="IElement_TimeTable.cs" t="Include" />
+          <e p="IHolder.cs" t="Include" />
+          <e p="IHolder_LinearLayout.cs" t="Include" />
+          <e p="InspectorDrawer.cs" t="Include" />
+        </e>
+        <e p="MainButton_Toggle.cs" t="Include" />
+        <e p="Window" t="Include">
+          <e p="IWindowContainer.cs" t="Include" />
+          <e p="WindowContainer_Main.cs" t="Include" />
+        </e>
+        <e p="Workers" t="Include">
+          <e p="IWorker.cs" t="Include" />
+          <e p="IWorker_ResourceManagement.cs" t="Include" />
+          <e p="IWorker_ResourceScanner.cs" t="Include" />
+          <e p="Worker_Wood.cs" t="Include" />
+        </e>
+        <e p="WorldComponent_WorkerTicker.cs" t="Include" />
+      </e>
+      <e p="Finder.cs" t="Include" />
+      <e p="Harmony" t="Include">
+        <e p="InspectPaneFiller_Patch.cs" t="Include" />
+        <e p="InspectPaneUtility_Patch.cs" t="Include" />
+        <e p="MainTabWindow_Inspect_Patch.cs" t="Include" />
+      </e>
+      <e p="Manager2.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Properties" t="Include">
+        <e p="AssemblyInfo.cs" t="Include" />
+      </e>
+    </e>
+    <e p="$PROJECT_DIR$/../../Assemblies" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p=".editorconfig" t="Include" />
+      <e p="NextStep.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Solution Items" t="Include" />
+      <e p="Source" t="IncludeRecursive">
+        <e p="Base.cs" t="Include" />
+        <e p="Core" t="Include">
+          <e p="Extensions.cs" t="Include" />
+          <e p="ISelector.cs" t="Include" />
+          <e p="ITab_Lock.cs" t="Include" />
+          <e p="LockComp.cs" t="Include" />
+          <e p="LockConfig.ConfigRuleAnimals.cs" t="Include" />
+          <e p="LockConfig.ConfigRuleApparel.cs" t="Include" />
+          <e p="LockConfig.ConfigRuleBedRoom.cs" t="Include" />
+          <e p="LockConfig.ConfigRuleColonists.cs" t="Include" />
+          <e p="LockConfig.ConfigRuleGameCondition.cs" t="Include" />
+          <e p="LockConfig.ConfigRuleGuests.cs" t="Include" />
+          <e p="LockConfig.ConfigRuleIgnoreDrafted.cs" t="Include" />
+          <e p="LockConfig.ConfigRuleInverseColonists.cs" t="Include" />
+          <e p="LockConfig.ConfigRulePrisoners.cs" t="Include" />
+          <e p="LockConfig.ConfigRuleRace.cs" t="Include" />
+          <e p="LockConfig.cs" t="Include" />
+          <e p="LockProperties.cs" t="Include" />
+          <e p="Selector_DefSelection.cs" t="Include" />
+          <e p="Selector_PawnSelection.cs" t="Include" />
+          <e p="Selector_RuleSelection.cs" t="Include" />
+          <e p="Window_Confirm.cs" t="Include" />
+        </e>
+        <e p="Finder.cs" t="Include" />
+        <e p="Harmony" t="Include">
+          <e p="AutoUndrafter_Patch.cs" t="Include" />
+          <e p="Building_Bed_Patch.cs" t="Include" />
+          <e p="Building_Door_Patch.cs" t="Include" />
+          <e p="CompAssignableToPawn_Patch.cs" t="Include" />
+          <e p="Optimizations" t="Include">
+            <e p="Extensions_Patch.cs" t="Include" />
+            <e p="PathFinder_Patch.cs" t="Include" />
+          </e>
+          <e p="Pawn_ApparelTracker_Patch.cs" t="Include" />
+          <e p="Pawn_Ownership_Patch.cs" t="Include" />
+        </e>
+        <e p="Locks2.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+    </e>
+    <e p="$PROJECT_DIR$/../../../../../../../../../../Caches/JetBrains/Rider2020.3/extResources" t="IncludeRecursive" />
+    <e p="$PROJECT_DIR$/../../../../../../../../../../Caches/JetBrains/Rider2020.3/resharper-host/local/Transient/Rider/v203/SolutionCaches/_NextStep.-759219513.00" t="ExcludeRecursive" />
+  </component>
+</project>

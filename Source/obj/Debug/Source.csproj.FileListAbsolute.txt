@@ -1,0 +1,12 @@
+/Users/karimbatbouta/Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app/Mods/LockMeOut/Source/Source/Source/obj/Debug/Source.csprojAssemblyReference.cache
+/Users/karimbatbouta/Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app/Mods/LockMeOut/Source/Source/Source/obj/Debug/Source.csproj.CoreCompileInputs.cache
+/Users/karimbatbouta/Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app/Mods/LockMeOut/Assemblies/Locks2.dll
+/Users/karimbatbouta/Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app/Mods/LockMeOut/Assemblies/Locks2.pdb
+/Users/karimbatbouta/Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app/Mods/LockMeOut/Source/Source/Source/obj/Debug/Locks2.dll
+/Users/karimbatbouta/Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app/Mods/LockMeOut/Source/Source/Source/obj/Debug/Locks2.pdb
+/Users/karimbatbouta/Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app/Mods/LockThemOut/Source/Source/Source/obj/Debug/Source.csproj.CoreCompileInputs.cache
+/Users/karimbatbouta/Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app/Mods/Locks2/Assemblies/Locks2.dll
+/Users/karimbatbouta/Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app/Mods/Locks2/Assemblies/Locks2.pdb
+/Users/karimbatbouta/Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app/Mods/Locks2/Source/Source/Source/obj/Debug/Source.csproj.CoreCompileInputs.cache
+/Users/karimbatbouta/Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app/Mods/Locks2/Source/Source/Source/obj/Debug/Locks2.dll
+/Users/karimbatbouta/Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app/Mods/Locks2/Source/Source/Source/obj/Debug/Locks2.pdb

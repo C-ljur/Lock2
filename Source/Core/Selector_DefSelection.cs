@@ -8,57 +8,62 @@ namespace Locks2.Core
 {
     public class Selector_DefSelection : ISelector
     {
-        private Vector2 scrollPosition = Vector2.zero;
-        private Rect viewRect = Rect.zero;
-        private string searchString = "";
-
         public IEnumerable<Def> defs;
         public Action<Def> onSelect;
+        private Vector2 scrollPosition = Vector2.zero;
+        private string searchString = "";
+        private Rect viewRect = Rect.zero;
 
-        public Selector_DefSelection(IEnumerable<Def> defs, Action<Def> onSelect, bool integrated = false, Action closeAction = null) : base(integrated, closeAction)
+        public Selector_DefSelection(IEnumerable<Def> defs, Action<Def> onSelect, bool integrated = false,
+            Action closeAction = null) : base(integrated, closeAction)
         {
             this.defs = defs;
             this.onSelect = onSelect;
         }
 
-        public override void FillContents(Listing_Standard standard, Rect inRect)
+        public override void FillContents(Rect inRect)
         {
-            if (Find.Selector.selected.Count == 0)
+            GameFont font = Text.Font;
+            try
             {
-                Close();
-                return;
-            }
-            {
-                var rect = standard.GetRect(30);
-                Text.Font = GameFont.Tiny;
-                var searchRect = new Rect(0, 0, rect.width, 20);
+                Rect searchRect = inRect.TopPartPixels(20);
                 if (Widgets.ButtonImage(searchRect.LeftPartPixels(20), TexButton.CloseXSmall))
                 {
                     Close();
                 }
-                searchString = Widgets.TextField(new Rect(searchRect.position + new Vector2(25, 0), searchRect.size - new Vector2(55, 0)), searchString).ToLower();
-            }
-            {
-                standard.Gap(5);
-                var scrollRect = new Rect(inRect.position + new Vector2(0, 50), inRect.size - new Vector2(0, 50));
-                var section = standard.BeginSection_NewTemp(scrollRect.height);
-                standard.EndSection(section);
-                standard.BeginScrollView(new Rect(scrollRect.position + new Vector2(5, 0), scrollRect.size - new Vector2(10, 10)), ref scrollPosition, ref viewRect);
                 Text.Font = GameFont.Tiny;
-                foreach (Def def in defs)
+                string searchBuffer = Widgets.TextField(new Rect(searchRect.position + new Vector2(25, 0), searchRect.size - new Vector2(55, 0)),
+                        searchString).ToLower().Trim();
+                if (searchBuffer != searchString)
                 {
-                    if (def.label.ToLower().Contains(searchString))
-                    {
-                        var rect = standard.GetRect(50);
-                        Widgets.DefLabelWithIcon(rect, def);
-                        if (Widgets.ButtonInvisible(rect))
-                        {
-                            onSelect(def);
-                            Close();
-                        }
-                    }
+                    scrollPosition = Vector2.zero;
+                    searchString = searchBuffer;
                 }
-                standard.EndScrollView(ref viewRect);
+                inRect.yMin += 25;
+                Rect contentRect = new Rect(0, 0, inRect.width - 20, defs.Count() * 40);
+                Widgets.DrawMenuSection(inRect);
+                Widgets.BeginScrollView(inRect, ref scrollPosition, contentRect);
+                Rect currentRect = contentRect.TopPartPixels(40);
+                Text.Font = GameFont.Tiny;
+                foreach (var def in defs)
+                {
+                    if (searchString.Length > 0 && !def.label.ToLower().Contains(searchString))
+                    {
+                        continue;
+                    }
+                    Widgets.DefLabelWithIcon(currentRect, def);
+                    if (Widgets.ButtonInvisible(currentRect))
+                    {
+                        onSelect(def);
+                        Close();
+                    }
+                    currentRect.y += currentRect.height;
+                }
+                Widgets.EndScrollView();
+            }
+            finally
+            {
+                Text.Font = font;
             }
         }
     }
