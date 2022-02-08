@@ -19,10 +19,12 @@ namespace Locks2.Harmony
                 __result = true;
                 return false;
             }
-            if (!(__instance.Map?.IsPlayerHome ?? false) || p == null || (p.roping?.IsRopedByPawn ?? false)) return true;
+            // Attempt 1 at fixing the pen bug.
+            // if (!(__instance.Map?.IsPlayerHome ?? false) || p == null || (p.roping?.IsRopedByPawn ?? false)) return true;
+            if ((__instance.Map != null && __instance.Map.IsPlayerHome) || p == null) return true;
             var config = Finder.currentConfig = __instance.GetConfig();
             if (config == null) return true;
-            if (config.Allows(p))
+            if (config.Allows(p) || config.Allows(p.roping?.RopedByPawn))
                 __result = true;
             else
                 __result = false;
