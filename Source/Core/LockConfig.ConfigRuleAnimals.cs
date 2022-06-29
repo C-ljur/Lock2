@@ -13,6 +13,7 @@ namespace Locks2.Core
             public int ageFilter = 1;
             public bool ageFilterEnabled;
             public Gender allowedGender = Gender.Female;
+            public string allowedGenderText = "Locks2AnimalsGenderFemale".Translate();
 
             private string buffer = "1";
             public bool enabled = true;
@@ -44,7 +45,7 @@ namespace Locks2.Core
                     rect.position += new Vector2(0, 25);
                     rect.size = new Vector2(rect.size.x, 25);
                     Text.Font = GameFont.Tiny;
-                    Widgets.CheckboxLabeled(rect, "Locks2AnimalsGenderFilter".Translate() + " " + allowedGender, ref genderFilterEnabled);
+                    Widgets.CheckboxLabeled(rect, "Locks2AnimalsGenderFilter".Translate() + " " + allowedGenderText, ref genderFilterEnabled);
 
                     if (genderFilterEnabled)
                     {
@@ -53,12 +54,14 @@ namespace Locks2.Core
                         if (Widgets.ButtonText(rect.RightHalf(), "Locks2AnimalsGenderMale".Translate()))
                         {
                             allowedGender = Gender.Male;
+                            allowedGenderText = "Locks2AnimalsGenderMale".Translate();
                             Notify_Dirty();
                         }
 
                         if (Widgets.ButtonText(rect.LeftHalf(), "Locks2AnimalsGenderFemale".Translate()))
                         {
                             allowedGender = Gender.Female;
+                            allowedGenderText = "Locks2AnimalsGenderFemale".Translate();
                             Notify_Dirty();
                         }
                     }
